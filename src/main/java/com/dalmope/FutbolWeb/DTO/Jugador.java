@@ -17,17 +17,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "jugador")
-// @NamedQueries({
-//     @NamedQuery(name = "Jugador.findAll", query = "SELECT j FROM Jugador j"),
-//     @NamedQuery(name = "Jugador.findById", query = "SELECT j FROM Jugador j WHERE j.id = :id"),
-//     @NamedQuery(name = "Jugador.findByTipoDocumento", query = "SELECT j FROM Jugador j WHERE j.tipoDocumento = :tipoDocumento"),
-//     @NamedQuery(name = "Jugador.findByNumeroDocumento", query = "SELECT j FROM Jugador j WHERE j.numeroDocumento = :numeroDocumento"),
-//     @NamedQuery(name = "Jugador.findByNombre", query = "SELECT j FROM Jugador j WHERE j.nombre = :nombre"),
-//     @NamedQuery(name = "Jugador.findByApellido", query = "SELECT j FROM Jugador j WHERE j.apellido = :apellido"),
-//     @NamedQuery(name = "Jugador.findByFechaNacimiento", query = "SELECT j FROM Jugador j WHERE j.fechaNacimiento = :fechaNacimiento"),
-//     @NamedQuery(name = "Jugador.findByPaisNacimiento", query = "SELECT j FROM Jugador j WHERE j.paisNacimiento = :paisNacimiento"),
-//     @NamedQuery(name = "Jugador.findByCiudadNacimiento", query = "SELECT j FROM Jugador j WHERE j.ciudadNacimiento = :ciudadNacimiento"),
-//     @NamedQuery(name = "Jugador.findByPosicionJuego", query = "SELECT j FROM Jugador j WHERE j.posicionJuego = :posicionJuego")})
 public class Jugador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -76,9 +65,9 @@ public class Jugador implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "posicionJuego")
     private String posicionJuego;
-    @JoinColumn(name = "equipo", referencedColumnName = "codigo")
+    @JoinColumn(name = "id_equipo", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
-    private Equipo equipo;
+    private Equipo idEquipo;
 
     public Jugador() {
     }
@@ -171,12 +160,12 @@ public class Jugador implements Serializable {
         this.posicionJuego = posicionJuego;
     }
 
-    public Equipo getEquipo() {
-        return equipo;
+    public Equipo getIdEquipo() {
+        return idEquipo;
     }
 
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
+    public void setIdEquipo(Equipo idEquipo) {
+        this.idEquipo = idEquipo;
     }
 
     @Override

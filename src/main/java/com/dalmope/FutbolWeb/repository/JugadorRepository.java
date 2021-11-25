@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JugadorRepository extends JpaRepository<Jugador, Integer> {
-    List<Jugador> findByEquipo(Integer Equipo);
+    List<Jugador> findByIdEquipo(Integer Equipo);
 }
 

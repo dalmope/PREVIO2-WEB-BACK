@@ -19,12 +19,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "equipo")
-// @NamedQueries({
-    // @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e"),
-    // @NamedQuery(name = "Equipo.findByCodigo", query = "SELECT e FROM Equipo e WHERE e.codigo = :codigo"),
-    // @NamedQuery(name = "Equipo.findByNombre", query = "SELECT e FROM Equipo e WHERE e.nombre = :nombre"),
-    // @NamedQuery(name = "Equipo.findByFechaCreacion", query = "SELECT e FROM Equipo e WHERE e.fechaCreacion = :fechaCreacion"),
-    // @NamedQuery(name = "Equipo.findByTecnico", query = "SELECT e FROM Equipo e WHERE e.tecnico = :tecnico")})
 public class Equipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,14 +42,14 @@ public class Equipo implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "tecnico")
     private String tecnico;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipo")
-    private List<Jugador> jugadores;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEquipo")
+    private List<Jugador> jugadorCollection;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "equipo1")
     private EstadisticasEquipo estadisticasEquipo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipoLocal")
-    private List<Partido> partidosLocal;
+    private List<Partido> partidoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipoVisitante")
-    private List<Partido> partidosVisitante;
+    private List<Partido> partidoCollection1;
 
     public Equipo() {
     }
@@ -103,12 +97,12 @@ public class Equipo implements Serializable {
         this.tecnico = tecnico;
     }
 
-    public List<Jugador> getJugadores() {
-        return jugadores;
+    public List<Jugador> getJugadorCollection() {
+        return jugadorCollection;
     }
 
-    public void setJugadores(List<Jugador> jugadores) {
-        this.jugadores = jugadores;
+    public void setJugadorCollection(List<Jugador> jugadorCollection) {
+        this.jugadorCollection = jugadorCollection;
     }
 
     public EstadisticasEquipo getEstadisticasEquipo() {
@@ -119,20 +113,20 @@ public class Equipo implements Serializable {
         this.estadisticasEquipo = estadisticasEquipo;
     }
 
-    public List<Partido> getPartidosLocal() {
-        return partidosLocal;
+    public List<Partido> getPartidoCollection() {
+        return partidoCollection;
     }
 
-    public void setPartidosLocal(List<Partido> partidosLocal) {
-        this.partidosLocal = partidosLocal;
+    public void setPartidoCollection(List<Partido> partidoCollection) {
+        this.partidoCollection = partidoCollection;
     }
 
-    public List<Partido> getPartidoVisitante() {
-        return partidosVisitante;
+    public List<Partido> getPartidoCollection1() {
+        return partidoCollection1;
     }
 
-    public void setPartidoCollection1(List<Partido> partidosVisitante) {
-        this.partidosVisitante = partidosVisitante;
+    public void setPartidoCollection1(List<Partido> partidoCollection1) {
+        this.partidoCollection1 = partidoCollection1;
     }
 
     @Override

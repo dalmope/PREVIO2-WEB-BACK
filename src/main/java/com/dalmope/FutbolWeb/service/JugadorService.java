@@ -18,7 +18,7 @@ public class JugadorService {
 
     public List<Jugador> findByEquipo(Integer id) {
         try {
-            return jugadorRepository.findByEquipo(id);
+            return jugadorRepository.findByIdEquipo(id);
         } catch (Exception e) {
             e.printStackTrace();
         } 

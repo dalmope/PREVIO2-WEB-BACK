@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "partido")
@@ -17,21 +19,30 @@ public class Partido implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
     @Column(name = "numero_fecha")
-    private Integer numeroFecha;
+    private Short numeroFecha;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "goles_local")
     private short golesLocal;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "goles_visitante")
     private short golesVisitante;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "ciudad")
     private String ciudad;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "arbitro")
     private String arbitro;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "estadio")
     private String estadio;
     @JoinColumn(name = "equipo_local", referencedColumnName = "codigo")
@@ -44,11 +55,11 @@ public class Partido implements Serializable {
     public Partido() {
     }
 
-    public Partido(Integer numeroFecha) {
+    public Partido(Short numeroFecha) {
         this.numeroFecha = numeroFecha;
     }
 
-    public Partido(Integer numeroFecha, short golesLocal, short golesVisitante, String ciudad, String arbitro, String estadio) {
+    public Partido(Short numeroFecha, short golesLocal, short golesVisitante, String ciudad, String arbitro, String estadio) {
         this.numeroFecha = numeroFecha;
         this.golesLocal = golesLocal;
         this.golesVisitante = golesVisitante;
@@ -57,11 +68,11 @@ public class Partido implements Serializable {
         this.estadio = estadio;
     }
 
-    public Integer getNumeroFecha() {
+    public Short getNumeroFecha() {
         return numeroFecha;
     }
 
-    public void setNumeroFecha(Integer numeroFecha) {
+    public void setNumeroFecha(Short numeroFecha) {
         this.numeroFecha = numeroFecha;
     }
 
@@ -143,7 +154,7 @@ public class Partido implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.estadisticasequiposjee.datos.DTO.Partido[ numeroFecha=" + numeroFecha + " ]";
+        return "com.mycompany.mavenproject2.resources.datos.Partido[ numeroFecha=" + numeroFecha + " ]";
     }
     
 }

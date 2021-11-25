@@ -13,17 +13,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "estadisticas_equipo")
-// @NamedQueries({
-//     @NamedQuery(name = "EstadisticasEquipo.findAll", query = "SELECT e FROM EstadisticasEquipo e"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByEquipo", query = "SELECT e FROM EstadisticasEquipo e WHERE e.equipo = :equipo"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByGolesFavor", query = "SELECT e FROM EstadisticasEquipo e WHERE e.golesFavor = :golesFavor"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByGolesContra", query = "SELECT e FROM EstadisticasEquipo e WHERE e.golesContra = :golesContra"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByDiferenciaGoles", query = "SELECT e FROM EstadisticasEquipo e WHERE e.diferenciaGoles = :diferenciaGoles"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByPartidosJugados", query = "SELECT e FROM EstadisticasEquipo e WHERE e.partidosJugados = :partidosJugados"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByPartidosGanados", query = "SELECT e FROM EstadisticasEquipo e WHERE e.partidosGanados = :partidosGanados"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByPartidosPerdidos", query = "SELECT e FROM EstadisticasEquipo e WHERE e.partidosPerdidos = :partidosPerdidos"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByPuntos", query = "SELECT e FROM EstadisticasEquipo e WHERE e.puntos = :puntos"),
-//     @NamedQuery(name = "EstadisticasEquipo.findByPromedio", query = "SELECT e FROM EstadisticasEquipo e WHERE e.promedio = :promedio")})
 public class EstadisticasEquipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,10 +45,6 @@ public class EstadisticasEquipo implements Serializable {
     @NotNull
     @Column(name = "partidos_perdidos")
     private short partidosPerdidos;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "partidos_empatados")
-    private short partidosEmpatados;
     @Basic(optional = false)
     @NotNull
     @Column(name = "puntos")
