@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dalmope.FutbolWeb.DTO.Jugador;
 import com.dalmope.FutbolWeb.DTO.Mensaje;
+import com.dalmope.FutbolWeb.service.EquipoService;
 import com.dalmope.FutbolWeb.service.JugadorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class JugadorController {
     
     @Autowired
     private JugadorService jugadorService;
+
+    @Autowired
+    private EquipoService equipoService;
 
     @ApiOperation("Devuelve un listado de jugadores")
     @GetMapping
@@ -82,5 +86,4 @@ public class JugadorController {
         return new ResponseEntity<>(new Mensaje("eliminado"), HttpStatus.OK);
     }
     
-
 }
